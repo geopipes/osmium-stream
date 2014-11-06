@@ -15,9 +15,10 @@ The easiest way to install `node.js` is with [nave.sh](https://github.com/isaacs
 You can extract the openstreetmap data from a file stream:
 
 ```javascript
-var osm = require('osmium-stream');
+var osmium = require('osmium'),
+    OsmiumStream = require('osmium-stream');
 
-var file = new osmium.File( 'http://peter.johnson.s3.amazonaws.com/somes.osm.pbf', 'pbf' );
+var file = new osmium.File( 'https://s3.amazonaws.com/metro-extracts.mapzen.com/london_england.osm.pbf', 'pbf' );
 var stream = new OsmiumStream( new osmium.Reader( file ) );
 
 stream.pipe( through.obj( function( object, enc, next ){
