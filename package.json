@@ -1,0 +1,43 @@
+{
+  "name": "osmium-stream",
+  "author": "mapzen",
+  "version": "0.0.1",
+  "description": "Streaming openstreetmap parser",
+  "homepage": "https://github.com/geopipes/osmium-stream",
+  "license": "MIT",
+  "main": "OsmiumStream.js",
+  "scripts": {
+    "test": "node test/run.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/geopipes/osmium-stream.git"
+  },
+  "keywords": [
+    "openstreetmap",
+    "osmium",
+    "osm",
+    "stream",
+    "parser",
+    "pbf",
+    "xml",
+    "planet",
+    "openstreetmaps"
+  ],
+  "bugs": {
+    "url": "https://github.com/geopipes/osmium-stream/issues"
+  },
+  "engines": {
+    "node": ">=0.8"
+  },
+  "dependencies": {
+    "readable-stream": "^1.0.33"
+  },
+  "devDependencies": {
+    "osmium": "^0.3.0",
+    "request": "^2.47.0",
+    "tap-spec": "^0.2.0",
+    "tape": "^2.13.4",
+    "through2": "^0.6.3"
+  }
+}
