@@ -1,0 +1,13 @@
+language: node_js
+
+node_js:
+ - "0.10"
+
+install:
+ - npm install
+
+script:
+ - npm test
+
+notifications:
+  flowdock: f0bbceadacc5c97e7f3a657941b5a5eb
