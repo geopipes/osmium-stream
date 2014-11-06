@@ -1,7 +1,6 @@
 
 var OsmiumStream = require('../'),
     through = require('through2'),
-    request = require('request'),
     osmium = require('osmium');
 
 module.exports.example = {};

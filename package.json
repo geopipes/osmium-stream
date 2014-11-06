@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "osmium": "^0.3.0",
-    "request": "^2.47.0",
     "tap-spec": "^0.2.0",
     "tape": "^2.13.4",
     "through2": "^0.6.3"
