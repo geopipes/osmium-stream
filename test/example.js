@@ -21,7 +21,7 @@ module.exports.example.request = function(test, common) {
       next();
     };
 
-    // correct counts check via another source
+    // correct counts checked via another source
     // ref: https://gist.github.com/missinglink/414edeaae2298db711e3
     var assert = function(){
       t.equal( counts.node, 1494, 'correct node counts' );
