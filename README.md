@@ -16,6 +16,7 @@ You can extract the openstreetmap data from a file stream:
 
 ```javascript
 var osmium = require('osmium'),
+    through = require('through2'),
     OsmiumStream = require('osmium-stream');
 
 var file = new osmium.File( 'https://s3.amazonaws.com/metro-extracts.mapzen.com/london_england.osm.pbf', 'pbf' );
