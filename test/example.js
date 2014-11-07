@@ -13,10 +13,11 @@ module.exports.example.request = function(test, common) {
 
     var counts = { node: 0, way: 0, relation: 0, other: 0 };
     var transform = function( object, enc, next ){
-      if( object instanceof osmium.Node ){ counts.node++; }
-      else if( object instanceof osmium.Way ){ counts.way++; }
-      else if( object instanceof osmium.Relation ){ counts.relation++; }
-      else { counts.other++; }
+      if( counts.hasOwnProperty( object.type ) ){
+        counts[ object.type ]++;
+      } else {
+        counts.other++;
+      }
       next();
     };
 

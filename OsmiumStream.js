@@ -1,11 +1,13 @@
 
 var util = require('util'),
+    osmium = require('osmium'),
     Readable = require('readable-stream');
 
 function OsmiumStream( reader ){
   Readable.call( this, { objectMode: true } );
   this._reader = reader;
   this._internalBuffer = [];
+  this.osmium = osmium;
 }
 
 util.inherits( OsmiumStream, Readable );
@@ -37,6 +39,33 @@ OsmiumStream.prototype._next = function(){
   }.bind(this));
 };
 
+OsmiumStream.prototype._mapRecord = function( object ){
+  if( object instanceof osmium.Node ){
+    return {
+      type: 'node',
+      id: object.id,
+      lat: object.lat,
+      lon: object.lon,
+      tags: object.tags()
+    };
+  } else if( object instanceof osmium.Way ){
+    return {
+      type: 'way',
+      id: object.id,
+      refs: object.node_refs(),
+      tags: object.tags()
+    };
+  } else if( object instanceof osmium.Relation ){
+    return {
+      type: 'relation',
+      id: object.id
+    };
+  } else {
+    console.log( 'unkown type', object.constructor.name );
+    return null;
+  }
+};
+
 OsmiumStream.prototype._end = function(){
   this.push( null );
 };
@@ -44,7 +73,7 @@ OsmiumStream.prototype._end = function(){
 OsmiumStream.prototype._extractBuffer = function( buffer, extracted, done ){
   var object = buffer.next();
   if( !object ){ return done( extracted ); } //done
-  else { extracted.push( object ); }
+  else { extracted.push( this._mapRecord( object ) ); }
   setImmediate( this._extractBuffer.bind( this, buffer, extracted, done ) );
 };
 

@@ -31,10 +31,10 @@
     "node": ">=0.8"
   },
   "dependencies": {
-    "readable-stream": "^1.0.33"
+    "readable-stream": "^1.0.33",
+    "osmium": "^0.3.0"
   },
   "devDependencies": {
-    "osmium": "^0.3.0",
     "tap-spec": "^0.2.0",
     "tape": "^2.13.4",
     "through2": "^0.6.3"
