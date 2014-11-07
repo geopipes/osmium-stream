@@ -7,10 +7,10 @@ function OsmiumStream( reader ){
   Readable.call( this, { objectMode: true } );
   this._reader = reader;
   this._internalBuffer = [];
-  this.osmium = osmium;
 }
 
 util.inherits( OsmiumStream, Readable );
+OsmiumStream.osmium = osmium;
 
 OsmiumStream.prototype._flush = function(){
   var flooding = false;
