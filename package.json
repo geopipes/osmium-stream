@@ -1,7 +1,7 @@
 {
   "name": "osmium-stream",
   "author": "mapzen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Streaming openstreetmap parser",
   "homepage": "https://github.com/geopipes/osmium-stream",
   "license": "MIT",
